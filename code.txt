@@ -1,0 +1,47 @@
+import { useRef, useState } from "react";
+import React from "react";
+import "./App.css";
+import { FcPrevious, FcNext } from "react-icons/fc";
+import { BiPauseCircle } from "react-icons/bi";
+import { AiFillPlayCircle } from "react-icons/ai";
+
+function App() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playpausetoggle = () => {
+    setIsPlaying(!isPlaying);
+  };
+  return (
+    <>
+      <div className="bg-green-200 flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold">Music App</h1>
+        
+        <div>
+          <img />
+          <h1></h1>
+          <h2></h2>
+          <div></div>
+        </div>
+      </div>
+      <div className="flex justify-evenly">
+        <div>
+          <button className="p-4 bg-blue-200 rounded-full  hover:bg-blue-300">
+            <FcPrevious />
+          </button>
+        </div>
+
+        <button
+          onClick={playpausetoggle}
+          className="p-4 bg-blue-200 rounded-full  hover:bg-blue-300"
+        >
+          {isPlaying ? <BiPauseCircle /> : <AiFillPlayCircle />}
+        </button>
+        <button className="p-4 bg-blue-200 rounded-full  hover:bg-blue-300">
+          <FcNext />
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
